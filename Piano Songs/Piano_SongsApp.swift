@@ -11,7 +11,7 @@ import SwiftUI
 struct Piano_SongsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SongList().environmentObject(UserData())
         }
     }
 }
