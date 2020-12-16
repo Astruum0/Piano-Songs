@@ -23,7 +23,6 @@ struct SongList: View {
                             SongRow(song: song)
                         }
                     }
-                    
                 }
             }
             .navigationBarTitle(Text("Piano Songs 🎹"))
