@@ -6,12 +6,12 @@
         "BPM": 76,
         "coverURL": "https://e-cdns-images.dzcdn.net/images/cover/81e6d7baa7f47b804704922412e7a014/1000x1000-000000-80-0-0.jpg",
         "videoURL": "https://www.youtube.com/watch?v=kUpWP56FmI0",
-        "learned": true
+        "learned": true,
     },
     {
         "id": 2,
         "name": "Cornfield Chase - Interstellar",
-        "artist": ["Hanz Zimmer"],
+        "artist": ["Hans Zimmer"],
         "tags": ["Sad", "Film"],
         "BPM": 100,
         "coverURL": "https://e-cdns-images.dzcdn.net/images/cover/5a02690056ec7f97030788109498ac5a/1000x1000-000000-80-0-0.jpg",
@@ -21,7 +21,7 @@
     {
         "id": 3,
         "name": "Time - Inception",
-        "artist": ["Hanz Zimmer"],
+        "artist": ["Hans Zimmer"],
         "tags": ["Sad", "Film"],
         "BPM": 100,
         "videoURL": "https://www.youtube.com/watch?v=b8HVQtIoBYU",

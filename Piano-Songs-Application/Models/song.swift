@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreLocation
 
-struct Song: Hashable, Codable, Identifiable {
+struct SongT: Hashable, Codable, Identifiable {
 
     var id: Int
     var name: String

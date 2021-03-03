@@ -12,7 +12,7 @@ import Foundation
 import Combine
 
 
-let songsData: [Song] = load("songsData.json")
+let songsData: [SongT] = load("songsData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -128,23 +128,20 @@ struct AsyncImage: View {
             switch state {
                 case .large:
                     if loader.image != nil {
-                        
-                        GeometryReader { geo in
                         Image(uiImage: loader.image!)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geo.size.width)
-                            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                        }
+                            .frame(width: 300, height: 300)
+                            .scaledToFill()
+                            .cornerRadius(12.0)
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             
                     } else {
-                        GeometryReader { geo in
                         Image("default")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width)
-                            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                        }
+                            .frame(width: 300, height: 300)
+                            .scaledToFill()
+                            .cornerRadius(12.0)
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     }
                 case .small:
                     if loader.image != nil {
@@ -160,10 +157,8 @@ struct AsyncImage: View {
     }
 }
 
-struct test: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SongList().environmentObject(UserData())
-        }
+extension Double {
+    var clean: String {
+       return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
 }
