@@ -28,27 +28,27 @@ struct MainView: View {
                     Image(systemName: "music.note.list")
                     Text("Songs")
             }
-//            ArtistList()
-//                .tabItem {
-//                    Image(systemName: "music.mic")
-//                    Text("Artists")
-//            }
-//            TagList()
-//                .tabItem {
-//                    Image(systemName: "tag")
-//                    Text("Categories")
-//            }
-//            SongsBPM()
-//                .tabItem {
-//                    Image(systemName: "music.quarternote.3")
-//                    Text("BPM")
-//                }
+            ArtistList(SongVM: SongVM)
+                .tabItem {
+                    Image(systemName: "music.mic")
+                    Text("Artists")
+            }
+            TagList(SongVM: SongVM)
+                .tabItem {
+                    Image(systemName: "tag")
+                    Text("Categories")
+            }
+            SongsBPM(SongVM: SongVM)
+                .tabItem {
+                    Image(systemName: "music.quarternote.3")
+                    Text("BPM")
+                }
         }.onAppear(perform: {
-            if (self.songs.count >= 1) {
-                print(songs[0].tags!)
-            } else {
+            if (self.songs.count == 0) {
+                self.SongVM.addDefaultSongs(context: context)
                 self.SongVM.addDefaultSongs(context: context)
             }
+
         })
     }
 }

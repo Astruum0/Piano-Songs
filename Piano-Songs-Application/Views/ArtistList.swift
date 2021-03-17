@@ -7,21 +7,27 @@
 
 import SwiftUI
 
+
 struct ArtistList: View {
+    
+    @ObservedObject var SongVM:SongViewModel
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         NavigationView {
             List {
-//                ForEach(0 ..< userData.allArtists.count) { value in
-//                    NavigationLink(destination: SongsFromArtist(artist: userData.allArtists[value])) {
-//                        Text(userData.allArtists[value])
-//
-//                    }
-//
-//                }
+                ForEach(0 ..< SongVM.allArtists.count) { value in
+                    NavigationLink(destination: SongsFromArtist(artist: SongVM.allArtists[value], SongVM: SongVM)) {
+                        Text(SongVM.allArtists[value])
+
+                    }
+
+                }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Artists")
-        }
+        }.onAppear(perform: {
+            self.SongVM.updateAllArtists(context: context)
+        })
     }
 }

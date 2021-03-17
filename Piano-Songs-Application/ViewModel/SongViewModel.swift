@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 
 class SongViewModel: ObservableObject {
+    @Published var showLearnedOnly = false
+    
     @Published var name = ""
     @Published var artist = ""
     @Published var videoUrl = ""
@@ -17,21 +19,25 @@ class SongViewModel: ObservableObject {
     @Published var learned = false
     
     @Published var tags = [String]()
+    @Published var updated = false
     
-    @Published var songToToggle: Song!
+    @Published var allArtists = [String]()
+    @Published var allTags = [String]()
+
     
     fileprivate let tagReq = NSFetchRequest<Tag>(entityName: "Tag")
+    fileprivate let songReq = NSFetchRequest<Song>(entityName: "Song")
     
     func addDefaultSongs(context: NSManagedObjectContext) {
         
         let newSong = Song(context: context)
         
-        tags = ["Sad", "Film", "Pop"]
-        newSong.name = "SkyFall"
-        newSong.artist = "Adele"
-        newSong.bpm = 76
-        newSong.videoUrl = "https://www.youtube.com/watch?v=kUpWP56FmI0"
-        newSong.coverUrl = "https://e-cdns-images.dzcdn.net/images/cover/81e6d7baa7f47b804704922412e7a014/1000x1000-000000-80-0-0.jpg"
+        tags = ["Film", "Sad"]
+        newSong.name = "Cornfield Chase - Interstellar"
+        newSong.artist = "Hans Zimmer"
+        newSong.bpm = 100
+        newSong.videoUrl = "https://www.youtube.com/watch?v=4y33h81phKU"
+        newSong.coverUrl = "https://e-cdns-images.dzcdn.net/images/cover/5a02690056ec7f97030788109498ac5a/1000x1000-000000-80-0-0.jpg"
         newSong.learned = false
         
         for currentTag in tags {
@@ -46,14 +52,54 @@ class SongViewModel: ObservableObject {
         }
     }
     
+    func updateAllArtists(context: NSManagedObjectContext) {
+        do {
+            let songs = try context.fetch(songReq)
+            var unknownIn = false
+            for song in songs {
+                if song.artist == nil && !unknownIn {
+                    allArtists.append("Unknown")
+                    unknownIn = true
+                } else if (!allArtists.contains(where: {$0 == song.artist})) {
+                    allArtists.append(song.artist!)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func updateAllTags(context: NSManagedObjectContext) {
+        allTags = []
+        do {
+            let tags = try context.fetch(tagReq)
+            for tag in tags {
+                if tag.name != nil && !allTags.contains(tag.name!){
+                    allTags.append(tag.name!)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func toggleLearnedSong(song: Song, context: NSManagedObjectContext) {
         
         song.setValue(!song.learned, forKey: "learned")
-        
+        self.updated.toggle()
         
         do {
             try context.save()
             self.learned = false
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteSong(song: NSManagedObject, context: NSManagedObjectContext) {
+        context.delete(song)
+        do {
+            try context.save()
         } catch {
             print(error.localizedDescription)
         }

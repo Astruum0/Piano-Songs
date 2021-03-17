@@ -16,7 +16,6 @@ struct SongDetail: View {
     var body: some View {
         
         VStack {
-            
             if let url = song.coverUrl {
                 AsyncImage(url: URL(string: url)!, type: .large)
 
@@ -32,10 +31,10 @@ struct SongDetail: View {
             HStack {
                 
                 VStack {
-                    Text(song.name!)
+                    Text(song.name ?? "Unknown")
                         .font(.title)
                         .fontWeight(.bold)
-                    Text(song.artist!)
+                    Text(song.artist ?? "Unknown")
                         .font(.title2)
                         .fontWeight(.semibold)
                 }
@@ -63,20 +62,22 @@ struct SongDetail: View {
                 
             }
             HStack {
-                ForEach(song.tags?.allObjects as! [Tag], id: \.self) { tag in
-                    
-                    
-                    HStack {
-                        Image(systemName: "tag")
-                            .imageScale(.small)
-                        Text(tag.name!)
+                if song.tags != nil {
+                    ForEach(song.tags?.allObjects as! [Tag], id: \.self) { tag in
+                        
+                        
+                        HStack {
+                            Image(systemName: "tag")
+                                .imageScale(.small)
+                            Text(tag.name ?? "Unknown")
+                        }
+                        .padding(.all, 5.0)
+                        .padding(.horizontal, 2.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.white)
+                        )
                     }
-                    .padding(.all, 5.0)
-                    .padding(.horizontal, 2.0)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.white)
-                    )
                 }
             }
             .padding()

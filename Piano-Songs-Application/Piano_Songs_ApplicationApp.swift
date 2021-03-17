@@ -14,7 +14,6 @@ struct Piano_Songs_ApplicationApp: App {
     var body: some Scene {
         WindowGroup {
             MainView().environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(UserData())
         }
     }
 }

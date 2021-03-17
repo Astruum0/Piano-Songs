@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SongRow: View {
-    var song: Song
+    @ObservedObject var song: Song
     var showBPM: Bool = false
     
     init(song: Song, showBPM: Bool = false) {

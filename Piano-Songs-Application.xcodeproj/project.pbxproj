@@ -22,7 +22,6 @@
 		D0DE017425EF8320008ADF68 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE016A25EF8320008ADF68 /* MainView.swift */; };
 		D0DE017525EF8320008ADF68 /* SongsFromTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE016B25EF8320008ADF68 /* SongsFromTag.swift */; };
 		D0DE017625EF8320008ADF68 /* SongsFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */; };
-		D0DE017925EF832D008ADF68 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE017825EF832D008ADF68 /* userData.swift */; };
 		D0DE017D25EF8341008ADF68 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0DE017B25EF8341008ADF68 /* default.jpg */; };
 		D0DE017E25EF8341008ADF68 /* songsData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DE017C25EF8341008ADF68 /* songsData.json */; };
 		D0DE018325EF834B008ADF68 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018025EF834A008ADF68 /* ApiCall.swift */; };
@@ -50,7 +49,6 @@
 		D0DE016A25EF8320008ADF68 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D0DE016B25EF8320008ADF68 /* SongsFromTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsFromTag.swift; sourceTree = "<group>"; };
 		D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsFromArtist.swift; sourceTree = "<group>"; };
-		D0DE017825EF832D008ADF68 /* userData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		D0DE017B25EF8341008ADF68 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		D0DE017C25EF8341008ADF68 /* songsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songsData.json; sourceTree = "<group>"; };
 		D0DE018025EF834A008ADF68 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		D0DE015F25EF82EB008ADF68 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D0DE017825EF832D008ADF68 /* userData.swift */,
 				D0DE018A25EF8CC7008ADF68 /* TagViewModel.swift */,
 				D0DE018D25EF8F7E008ADF68 /* SongViewModel.swift */,
 			);
@@ -239,7 +236,6 @@
 				D0DE018525EF834B008ADF68 /* data.swift in Sources */,
 				D0DE016F25EF8320008ADF68 /* SongsBPM.swift in Sources */,
 				D0DE018E25EF8F7E008ADF68 /* SongViewModel.swift in Sources */,
-				D0DE017925EF832D008ADF68 /* userData.swift in Sources */,
 				D0DE016E25EF8320008ADF68 /* SongDetail.swift in Sources */,
 				D0DE018425EF834B008ADF68 /* song.swift in Sources */,
 				D0DE014B25EF81C5008ADF68 /* Piano_Songs_ApplicationApp.swift in Sources */,

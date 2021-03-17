@@ -11,26 +11,31 @@ struct SongList: View {
     @ObservedObject var SongVM:SongViewModel
     @Environment(\.managedObjectContext) var context
     @State var newSongViewOn: Bool = false
-    @EnvironmentObject var userData: UserData
     
     @FetchRequest(entity: Song.entity(),
-                  sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
+                  sortDescriptors: [NSSortDescriptor(key: "artist", ascending: true)])
     var songs: FetchedResults<Song>
     
     
     var body: some View {
         NavigationView {
+            
             List {
-                Toggle(isOn: $userData.showLearnedOnly) {
-                    Text("Show learned songs only")
-                }
-                ForEach(songs) { song in
-                    if (!userData.showLearnedOnly || song.learned) {
-                        NavigationLink(destination: SongDetail(song: song, SongVM: SongVM)) {
-                        SongRow(song: song)
+                if songs.count > 0 {
+                    Toggle(isOn: $SongVM.showLearnedOnly) {
+                        Text("Show learned songs only")
                     }
-                    }
-
+                    ForEach(songs) { song in
+                        if (!SongVM.showLearnedOnly || song.learned) {
+                            NavigationLink(destination: SongDetail(song: song, SongVM: SongVM)) {
+                            SongRow(song: song)
+                            }
+                        }
+                    }.onDelete(perform: { indexSet in
+                        self.SongVM.deleteSong(song: songs[indexSet.first!], context: context)
+                    })
+                } else {
+                    Text("No song posted yet, click the '+' button !")
                 }
             }
             .listStyle(InsetGroupedListStyle())
