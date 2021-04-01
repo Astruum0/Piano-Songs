@@ -48,7 +48,7 @@ struct SongList: View {
                     }
                 }
             ).sheet(isPresented: $newSongViewOn) {
-                NewSongView(isPresented: $newSongViewOn)
+                NewSongView(SongVM: SongVM)
             }
         }
         

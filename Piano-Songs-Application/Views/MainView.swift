@@ -44,6 +44,10 @@ struct MainView: View {
                     Text("BPM")
                 }
         }.onAppear(perform: {
+            if (self.tags.count == 0) {
+                self.TagVM.addDefaultTag(context: context)
+            }
+            self.SongVM.updateAllTags(context: context)
             if (self.songs.count == 0) {
                 self.SongVM.addDefaultSongs(context: context)
                 self.SongVM.addDefaultSongs(context: context)

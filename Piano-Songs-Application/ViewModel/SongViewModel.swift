@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+import Combine
+import SwiftUI
 
 class SongViewModel: ObservableObject {
     @Published var showLearnedOnly = false
@@ -15,6 +17,7 @@ class SongViewModel: ObservableObject {
     @Published var artist = ""
     @Published var videoUrl = ""
     @Published var bpm = 0
+    @Published var bpmStr = ""
     @Published var coverUrl = ""
     @Published var learned = false
     
@@ -23,7 +26,12 @@ class SongViewModel: ObservableObject {
     
     @Published var allArtists = [String]()
     @Published var allTags = [String]()
+    
+    @Published var dataSource: [SongFromDeezerViewModel] = []
 
+    
+    private let songFetcher: SongFetchable = SongFetcher()
+    private var disposables = Set<AnyCancellable>()
     
     fileprivate let tagReq = NSFetchRequest<Tag>(entityName: "Tag")
     fileprivate let songReq = NSFetchRequest<Song>(entityName: "Song")
@@ -42,6 +50,7 @@ class SongViewModel: ObservableObject {
         
         for currentTag in tags {
             tagReq.predicate = NSPredicate(format: "name == %@", currentTag)
+
             do {
                 let currentTagFetch = try context.fetch(tagReq)[0]
                 currentTagFetch.addToSongs(newSong)
@@ -104,5 +113,36 @@ class SongViewModel: ObservableObject {
             print(error.localizedDescription)
         }
     }
-    
+    func fetchSongs() {
+        songFetcher.SongForecast(songName: self.name, artist: self.artist)
+        .map { response in
+          response.data.map(SongFromDeezerViewModel.init)
+        }
+        .receive(on: DispatchQueue.main)
+        .sink(
+          receiveCompletion: { [weak self] value in
+            guard let self = self else { return }
+            switch value {
+            case .failure:
+              self.dataSource = []
+            case .finished:
+                self.updateData()
+              break
+            }
+          },
+          receiveValue: { [weak self] forecast in
+            guard let self = self else { return }
+            self.dataSource = forecast
+        })
+        .store(in: &disposables)
+        
+    }
+    func updateData() {
+        if dataSource.count > 0 {
+            self.name = dataSource[0].songName
+            self.artist = dataSource[0].artist
+            self.coverUrl = dataSource[0].cover
+        }
+        
+    }
 }

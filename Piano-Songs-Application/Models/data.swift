@@ -103,59 +103,10 @@ class ImageLoader: ObservableObject {
 
 enum imageType {
     case large
+    case medium
     case small
 }
 
-struct AsyncImage: View {
-    @StateObject private var loader: ImageLoader
-
-    var state:imageType
-    
-    init(url: URL, type: imageType) {
-        
-        _loader = StateObject(wrappedValue: ImageLoader(url: url))
-        state = type
-    }
-
-    var body: some View {
-        content
-            .onAppear(perform: loader.load)
-    }
-
-    private var content: some View {
-        Group {
-            
-            switch state {
-                case .large:
-                    if loader.image != nil {
-                        Image(uiImage: loader.image!)
-                            .resizable()
-                            .frame(width: 300, height: 300)
-                            .scaledToFill()
-                            .cornerRadius(12.0)
-                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            
-                    } else {
-                        Image("default")
-                            .resizable()
-                            .frame(width: 300, height: 300)
-                            .scaledToFill()
-                            .cornerRadius(12.0)
-                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    }
-                case .small:
-                    if loader.image != nil {
-                        Image(uiImage: loader.image!)
-                            .resizable().frame(width: 50, height: 50)
-                    } else {
-                        Image("default").resizable().frame(width: 50, height: 50)
-                    }
-            }
-            
-            
-        }
-    }
-}
 
 extension Double {
     var clean: String {

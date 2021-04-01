@@ -12,14 +12,14 @@ class TagViewModel: ObservableObject {
     @Published var name: String = ""
     
     func addDefaultTag(context: NSManagedObjectContext) -> Void {
-//        let pop = Tag(context: context)
-//        pop.name = "Pop"
-//
-//        let film = Tag(context: context)
-//        film.name = "Film"
-//
-//        let sad = Tag(context: context)
-//        sad.name = "Sad"
+        let pop = Tag(context: context)
+        pop.name = "Pop"
+
+        let film = Tag(context: context)
+        film.name = "Film"
+
+        let sad = Tag(context: context)
+        sad.name = "Sad"
         
         let rap = Tag(context: context)
         rap.name = "Rap"
