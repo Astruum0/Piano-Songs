@@ -19,7 +19,11 @@ struct SongRow: View {
     var body: some View {
         HStack {
             if let url = song.coverUrl {
-                AsyncImage(url: URL(string: url)!, type: .small)
+                AsyncImage2(url: URL(string: url)!,
+                              placeholder: { Text("Loading ...") },
+                              image: { Image(uiImage: $0).resizable() })
+                    .frame(width: 50, height: 50)
+                //AsyncImage(url: URL(string: url)!, type: .small)
             } else {
                 Image("default").resizable().frame(width: 50, height: 50)
             }

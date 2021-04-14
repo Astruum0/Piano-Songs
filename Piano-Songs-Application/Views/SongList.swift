@@ -10,7 +10,6 @@ import SwiftUI
 struct SongList: View {
     @ObservedObject var SongVM:SongViewModel
     @Environment(\.managedObjectContext) var context
-    @State var newSongViewOn: Bool = false
     
     @FetchRequest(entity: Song.entity(),
                   sortDescriptors: [NSSortDescriptor(key: "artist", ascending: true)])
@@ -41,13 +40,13 @@ struct SongList: View {
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle(Text("Piano Songs"))
             .navigationBarItems(trailing:
-                Button(action: { self.newSongViewOn.toggle() }) {
+                    Button(action: { self.SongVM.sheetOn.toggle() }) {
                     HStack {
                         Image(systemName: "plus")
                             .font(.title)
                     }
                 }
-            ).sheet(isPresented: $newSongViewOn) {
+            ).sheet(isPresented: self.$SongVM.sheetOn) {
                 NewSongView(SongVM: SongVM)
             }
         }

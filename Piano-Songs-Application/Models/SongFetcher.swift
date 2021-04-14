@@ -22,7 +22,7 @@ class SongFetcher {
   }
 }
 
-// MARK: - WeatherFetchable
+
 extension SongFetcher: SongFetchable {
   func SongForecast(
     songName: String, artist: String
@@ -48,7 +48,6 @@ extension SongFetcher: SongFetchable {
   }
 }
 
-// MARK: - OpenWeatherMap API
 private extension SongFetcher {
   struct DeezerAPI {
     static let scheme = "https"
@@ -84,4 +83,75 @@ func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, SongError> {
       .parsing(description: error.localizedDescription)
     }
     .eraseToAnyPublisher()
+}
+
+
+
+
+
+protocol SongBpmFetchable {
+  func SongForecast(
+    songName: String, artist: String
+  ) -> AnyPublisher<SongBpmResponse, SongError>
+}
+
+class SongBpmFetcher {
+  private let session: URLSession
+  
+  init(session: URLSession = .shared) {
+    self.session = session
+  }
+}
+
+
+extension SongBpmFetcher: SongBpmFetchable {
+  func SongForecast(
+    songName: String, artist: String
+  ) -> AnyPublisher<SongBpmResponse, SongError> {
+    return forecast(with: makeForecastComponents(songName: songName, artist: artist))
+  }
+
+  private func forecast<T>(
+    with components: URL?
+  ) -> AnyPublisher<T, SongError> where T: Decodable {
+    guard let url = components else {
+      let error = SongError.network(description: "Couldn't create URL")
+      return Fail(error: error).eraseToAnyPublisher()
+    }
+    return session.dataTaskPublisher(for: URLRequest(url: url))
+      .mapError { error in
+        .network(description: error.localizedDescription)
+      }
+      .flatMap(maxPublishers: .max(1)) { pair in
+        decode(pair.data)
+      }
+      .eraseToAnyPublisher()
+  }
+}
+
+private extension SongBpmFetcher {
+    
+  
+  func makeForecastComponents(
+    songName: String, artist: String
+  ) -> URL? {
+    
+    let scheme = "https"
+    let host = "api.getsongbpm.com"
+    let path = "/search/"
+    let queryKey = URLQueryItem(name: "api_key", value: "c34245400c242b071271738bdceccb93")
+    let queryType = URLQueryItem(name: "type", value:"both")
+    let querySearch = URLQueryItem(name: "lookup", value: "song:\(songName) artist:\(artist)")
+
+
+    var urlComponents = URLComponents()
+    urlComponents.scheme = scheme
+    urlComponents.host = host
+    urlComponents.path = path
+    urlComponents.queryItems = [queryKey, queryType, querySearch]
+    
+    print(urlComponents.url)
+
+    return urlComponents.url
+  }
 }

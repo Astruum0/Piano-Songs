@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D028E5A2260212AF00913D8B /* NewSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028E5A1260212AF00913D8B /* NewSongView.swift */; };
 		D028E5A5260253BE00913D8B /* apiCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028E5A4260253BE00913D8B /* apiCallModel.swift */; };
+		D045168B2626EB34009C0EC6 /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045168A2626EB34009C0EC6 /* NewTagView.swift */; };
 		D051B90C2614A9A400B0C535 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D051B90B2614A9A400B0C535 /* AsyncImageView.swift */; };
 		D0C5F6942614818900800F6E /* SongFromDeezerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C5F6932614818900800F6E /* SongFromDeezerViewModel.swift */; };
 		D0D770BB26147C23007D5B1E /* SongFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D770BA26147C23007D5B1E /* SongFetcher.swift */; };
@@ -28,8 +29,6 @@
 		D0DE017625EF8320008ADF68 /* SongsFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */; };
 		D0DE017D25EF8341008ADF68 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0DE017B25EF8341008ADF68 /* default.jpg */; };
 		D0DE017E25EF8341008ADF68 /* songsData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DE017C25EF8341008ADF68 /* songsData.json */; };
-		D0DE018325EF834B008ADF68 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018025EF834A008ADF68 /* ApiCall.swift */; };
-		D0DE018425EF834B008ADF68 /* song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018125EF834A008ADF68 /* song.swift */; };
 		D0DE018525EF834B008ADF68 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018225EF834B008ADF68 /* data.swift */; };
 		D0DE018B25EF8CC7008ADF68 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018A25EF8CC7008ADF68 /* TagViewModel.swift */; };
 		D0DE018E25EF8F7E008ADF68 /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018D25EF8F7E008ADF68 /* SongViewModel.swift */; };
@@ -38,6 +37,7 @@
 /* Begin PBXFileReference section */
 		D028E5A1260212AF00913D8B /* NewSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSongView.swift; sourceTree = "<group>"; };
 		D028E5A4260253BE00913D8B /* apiCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiCallModel.swift; sourceTree = "<group>"; };
+		D045168A2626EB34009C0EC6 /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
 		D051B90B2614A9A400B0C535 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		D0C5F6932614818900800F6E /* SongFromDeezerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFromDeezerViewModel.swift; sourceTree = "<group>"; };
 		D0D770BA26147C23007D5B1E /* SongFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFetcher.swift; sourceTree = "<group>"; };
@@ -59,8 +59,6 @@
 		D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsFromArtist.swift; sourceTree = "<group>"; };
 		D0DE017B25EF8341008ADF68 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		D0DE017C25EF8341008ADF68 /* songsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songsData.json; sourceTree = "<group>"; };
-		D0DE018025EF834A008ADF68 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
-		D0DE018125EF834A008ADF68 /* song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = song.swift; sourceTree = "<group>"; };
 		D0DE018225EF834B008ADF68 /* data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		D0DE018A25EF8CC7008ADF68 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		D0DE018D25EF8F7E008ADF68 /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
@@ -140,8 +138,9 @@
 				D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */,
 				D0DE016B25EF8320008ADF68 /* SongsFromTag.swift */,
 				D0DE016625EF8320008ADF68 /* TagList.swift */,
-				D028E5A1260212AF00913D8B /* NewSongView.swift */,
 				D051B90B2614A9A400B0C535 /* AsyncImageView.swift */,
+				D028E5A1260212AF00913D8B /* NewSongView.swift */,
+				D045168A2626EB34009C0EC6 /* NewTagView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,9 +157,7 @@
 		D0DE016225EF82FE008ADF68 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D0DE018025EF834A008ADF68 /* ApiCall.swift */,
 				D0DE018225EF834B008ADF68 /* data.swift */,
-				D0DE018125EF834A008ADF68 /* song.swift */,
 				D028E5A4260253BE00913D8B /* apiCallModel.swift */,
 				D0D770BA26147C23007D5B1E /* SongFetcher.swift */,
 			);
@@ -252,13 +249,12 @@
 				D0DE016F25EF8320008ADF68 /* SongsBPM.swift in Sources */,
 				D0DE018E25EF8F7E008ADF68 /* SongViewModel.swift in Sources */,
 				D0DE016E25EF8320008ADF68 /* SongDetail.swift in Sources */,
-				D0DE018425EF834B008ADF68 /* song.swift in Sources */,
 				D0DE014B25EF81C5008ADF68 /* Piano_Songs_ApplicationApp.swift in Sources */,
 				D0DE017525EF8320008ADF68 /* SongsFromTag.swift in Sources */,
-				D0DE018325EF834B008ADF68 /* ApiCall.swift in Sources */,
 				D0D770BB26147C23007D5B1E /* SongFetcher.swift in Sources */,
 				D0DE015725EF81C8008ADF68 /* Piano_Songs_Application.xcdatamodeld in Sources */,
 				D028E5A2260212AF00913D8B /* NewSongView.swift in Sources */,
+				D045168B2626EB34009C0EC6 /* NewTagView.swift in Sources */,
 				D0DE018B25EF8CC7008ADF68 /* TagViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

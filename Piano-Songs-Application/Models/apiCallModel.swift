@@ -28,3 +28,13 @@ enum SongError: Error {
   case parsing(description: String)
   case network(description: String)
 }
+
+struct SongBpmResponse: Codable {
+    
+    var search: [SongFromBPM]
+    
+    struct SongFromBPM: Codable {
+        var tempo: String
+    }
+    
+}

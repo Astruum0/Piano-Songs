@@ -26,3 +26,15 @@ struct SongFromDeezerViewModel {
         self.data = data
     }
 }
+
+struct SongFromBPMViewModel {
+    private let data: SongBpmResponse.SongFromBPM
+    
+    var tempo: String {
+        return data.tempo
+    }
+    
+    init(data: SongBpmResponse.SongFromBPM) {
+        self.data = data
+    }
+}

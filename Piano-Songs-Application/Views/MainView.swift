@@ -33,7 +33,7 @@ struct MainView: View {
                     Image(systemName: "music.mic")
                     Text("Artists")
             }
-            TagList(SongVM: SongVM)
+            TagList(SongVM: SongVM, TagVM: TagVM)
                 .tabItem {
                     Image(systemName: "tag")
                     Text("Categories")
@@ -49,7 +49,6 @@ struct MainView: View {
             }
             self.SongVM.updateAllTags(context: context)
             if (self.songs.count == 0) {
-                self.SongVM.addDefaultSongs(context: context)
                 self.SongVM.addDefaultSongs(context: context)
             }
 

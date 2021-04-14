@@ -16,9 +16,13 @@ struct NewSongView: View {
         self.SongVM = SongVM
     }
     
+    func cantAdd() -> Bool {
+        return self.SongVM.name == "" && self.SongVM.artist == ""
+    }
+    
+    
     var body: some View {
         NavigationView {
-            
             Form {
                 Section(header: Text("Song Name")) {
                     TextField(
@@ -41,7 +45,14 @@ struct NewSongView: View {
                 Section(header: Text("Auto filled informations")) {
                     HStack {
                         if self.SongVM.coverUrl != "" {
-                            AsyncImageForNewSong(songVM: SongVM, type: .medium)
+                            AsyncImage2FromViewModel(viewModel: self.SongVM,
+                                          placeholder: { Text("Loading ...") },
+                                          image: { Image(uiImage: $0).resizable() })
+                                .frame(width: 100, height: 100)
+                                .scaledToFill()
+                                .cornerRadius(12.0)
+                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            //AsyncImageForNewSong(songVM: SongVM, type: .medium)
                         } else {
                             Image("default")
                                 .resizable()
@@ -95,23 +106,27 @@ struct NewSongView: View {
                 }
                 
                 Button(action: {
-                    print("Add New Song")
+                    SongVM.addArtist(context: context)
                 }) {
                     Text("Add new song").frame(maxWidth: .infinity, alignment: .center)
-                }
+                }.disabled(cantAdd())
                 
             }.navigationBarTitle("New Song")
+            .navigationBarItems(trailing:
+                    Button(action: { self.SongVM.resetValues() }) {
+                    HStack {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.title)
+                    }
+                }
+                
+            )
+            
             
         }
-//        .onAppear(perform: {
-//            self.SongVM.updateAllTags(context: context)
-//        })
+        .onAppear(perform: {
+            self.SongVM.updateAllTags(context: context)
+        })
     }
 }
 
-//struct NewSongView_Previews:
-//    PreviewProvider {
-//    static var previews: some View {
-//        NewSongView()
-//    }
-//}

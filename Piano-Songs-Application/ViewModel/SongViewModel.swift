@@ -28,10 +28,16 @@ class SongViewModel: ObservableObject {
     @Published var allTags = [String]()
     
     @Published var dataSource: [SongFromDeezerViewModel] = []
+    
+    @Published var sheetOn = false
 
+    @Published var bpmResponses: [SongFromBPMViewModel] = []
     
     private let songFetcher: SongFetchable = SongFetcher()
     private var disposables = Set<AnyCancellable>()
+    
+    private let songBpmFetcher: SongBpmFetchable = SongBpmFetcher()
+    private var disposablesBpm = Set<AnyCancellable>()
     
     fileprivate let tagReq = NSFetchRequest<Tag>(entityName: "Tag")
     fileprivate let songReq = NSFetchRequest<Song>(entityName: "Song")
@@ -59,6 +65,51 @@ class SongViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func addArtist(context: NSManagedObjectContext) {
+        let newSong = Song(context: context)
+        
+        if (self.name != "") {
+            newSong.name = self.name
+        }
+        if (self.artist != "") {
+            newSong.artist = self.artist
+        }
+        if let bpm = Int64(bpmStr) {
+            newSong.bpm = bpm
+        }
+        if (self.videoUrl != "") {
+            newSong.videoUrl = self.videoUrl
+            
+        }
+        if (self.coverUrl != "") {
+            newSong.coverUrl = self.coverUrl
+        }
+        newSong.learned = false
+        
+        for currentTag in self.tags {
+            tagReq.predicate = NSPredicate(format: "name == %@", currentTag)
+
+            do {
+                let currentTagFetch = try context.fetch(tagReq)[0]
+                currentTagFetch.addToSongs(newSong)
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        resetValues()
+        sheetOn = false
+    }
+    func resetValues() {
+        name = ""
+        artist = ""
+        videoUrl = ""
+        bpm = 0
+        bpmStr = ""
+        coverUrl = ""
+        tags = [String]()
     }
     
     func updateAllArtists(context: NSManagedObjectContext) {
@@ -114,6 +165,7 @@ class SongViewModel: ObservableObject {
         }
     }
     func fetchSongs() {
+        self.coverUrl = ""
         songFetcher.SongForecast(songName: self.name, artist: self.artist)
         .map { response in
           response.data.map(SongFromDeezerViewModel.init)
@@ -136,12 +188,44 @@ class SongViewModel: ObservableObject {
         })
         .store(in: &disposables)
         
+        
+        
+        
     }
     func updateData() {
         if dataSource.count > 0 {
             self.name = dataSource[0].songName
             self.artist = dataSource[0].artist
             self.coverUrl = dataSource[0].cover
+            
+            self.bpmStr = ""
+            
+            songBpmFetcher.SongForecast(songName: self.name, artist: self.artist)
+            .map { response in
+                response.search.map(SongFromBPMViewModel.init)
+            }
+            .receive(on: DispatchQueue.main)
+            .sink(
+              receiveCompletion: { [weak self] value in
+                guard let self = self else { return }
+                switch value {
+                case .failure:
+                  self.bpmResponses = []
+                case .finished:
+                    if self.bpmResponses.count > 0 {
+                        self.bpmStr = self.bpmResponses[0].tempo
+                    }
+                    
+                  break
+                }
+              },
+              receiveValue: { [weak self] forecast in
+                guard let self = self else { return }
+                self.bpmResponses = forecast
+            })
+            .store(in: &disposablesBpm)
+            
+            
         }
         
     }

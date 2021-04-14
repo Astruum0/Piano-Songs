@@ -12,30 +12,6 @@ import Foundation
 import Combine
 
 
-let songsData: [SongT] = load("songsData.json")
-
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-    
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else {
-            fatalError("Couldn't find \(filename) in main bundle.")
-    }
-    
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-    
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-    }
-}
-
 final class ImageStore {
     typealias _ImageDictionary = [String: CGImage]
     fileprivate var images: _ImageDictionary = [:]
@@ -77,7 +53,7 @@ final class ImageStore {
 
 class ImageLoader: ObservableObject {
     @Published var image: UIImage?
-    private let url: URL
+    @Published private var url: URL
 
     init(url: URL) {
         self.url = url
