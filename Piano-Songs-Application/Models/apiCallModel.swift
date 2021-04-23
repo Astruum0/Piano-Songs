@@ -11,6 +11,7 @@ struct SongResponse: Codable {
     var data: [SongFromDeezer]
     
     struct SongFromDeezer: Codable {
+        var id: Int
         var title_short:String
         var artist: Artist
         var album: Album

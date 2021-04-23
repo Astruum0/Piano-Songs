@@ -39,8 +39,8 @@ class SongViewModel: ObservableObject {
     private let songBpmFetcher: SongBpmFetchable = SongBpmFetcher()
     private var disposablesBpm = Set<AnyCancellable>()
     
-    fileprivate let tagReq = NSFetchRequest<Tag>(entityName: "Tag")
-    fileprivate let songReq = NSFetchRequest<Song>(entityName: "Song")
+    fileprivate var tagReq = NSFetchRequest<Tag>(entityName: "Tag")
+    fileprivate var songReq = NSFetchRequest<Song>(entityName: "Song")
     
     func addDefaultSongs(context: NSManagedObjectContext) {
         
@@ -99,6 +99,7 @@ class SongViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+        updateAllArtists(context: context)
         resetValues()
         sheetOn = false
     }
@@ -113,6 +114,8 @@ class SongViewModel: ObservableObject {
     }
     
     func updateAllArtists(context: NSManagedObjectContext) {
+        songReq = NSFetchRequest<Song>(entityName: "Song")
+        songReq.sortDescriptors = [NSSortDescriptor(key: "artist", ascending: true)]
         do {
             let songs = try context.fetch(songReq)
             var unknownIn = false
@@ -130,7 +133,9 @@ class SongViewModel: ObservableObject {
     }
     
     func updateAllTags(context: NSManagedObjectContext) {
+
         allTags = []
+        tagReq = NSFetchRequest<Tag>(entityName: "Tag")
         do {
             let tags = try context.fetch(tagReq)
             for tag in tags {
@@ -141,6 +146,8 @@ class SongViewModel: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
+        
+        
     }
     
     func toggleLearnedSong(song: Song, context: NSManagedObjectContext) {

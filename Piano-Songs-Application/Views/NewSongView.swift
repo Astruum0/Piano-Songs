@@ -107,6 +107,7 @@ struct NewSongView: View {
                 
                 Button(action: {
                     SongVM.addArtist(context: context)
+                    SongVM.updateAllArtists(context: context)
                 }) {
                     Text("Add new song").frame(maxWidth: .infinity, alignment: .center)
                 }.disabled(cantAdd())
@@ -124,9 +125,6 @@ struct NewSongView: View {
             
             
         }
-        .onAppear(perform: {
-            self.SongVM.updateAllTags(context: context)
-        })
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F661427AE754CF46ECFC98A /* Pods_Piano_Songs_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5625A6E4D1C9DD5B70C45E20 /* Pods_Piano_Songs_Application.framework */; };
 		D028E5A2260212AF00913D8B /* NewSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028E5A1260212AF00913D8B /* NewSongView.swift */; };
 		D028E5A5260253BE00913D8B /* apiCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028E5A4260253BE00913D8B /* apiCallModel.swift */; };
 		D045168B2626EB34009C0EC6 /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045168A2626EB34009C0EC6 /* NewTagView.swift */; };
@@ -35,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		478B91D598CAEA34C5977694 /* Pods-Piano-Songs-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piano-Songs-Application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application.debug.xcconfig"; sourceTree = "<group>"; };
+		5625A6E4D1C9DD5B70C45E20 /* Pods_Piano_Songs_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Piano_Songs_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72B153A25729348964ADBD70 /* Pods-Piano-Songs-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piano-Songs-Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application.release.xcconfig"; sourceTree = "<group>"; };
 		D028E5A1260212AF00913D8B /* NewSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSongView.swift; sourceTree = "<group>"; };
 		D028E5A4260253BE00913D8B /* apiCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiCallModel.swift; sourceTree = "<group>"; };
 		D045168A2626EB34009C0EC6 /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
@@ -69,17 +73,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F661427AE754CF46ECFC98A /* Pods_Piano_Songs_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		801E12E9C0F0205D994BB626 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				478B91D598CAEA34C5977694 /* Pods-Piano-Songs-Application.debug.xcconfig */,
+				72B153A25729348964ADBD70 /* Pods-Piano-Songs-Application.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8DC3CBC5DDA62CD8BFC9C01D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5625A6E4D1C9DD5B70C45E20 /* Pods_Piano_Songs_Application.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0DE013E25EF81C5008ADF68 = {
 			isa = PBXGroup;
 			children = (
 				D0DE014925EF81C5008ADF68 /* Piano-Songs-Application */,
 				D0DE014825EF81C5008ADF68 /* Products */,
+				801E12E9C0F0205D994BB626 /* Pods */,
+				8DC3CBC5DDA62CD8BFC9C01D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0DE015B25EF81C8008ADF68 /* Build configuration list for PBXNativeTarget "Piano-Songs-Application" */;
 			buildPhases = (
+				559D2DD32BE9F30DA6E1A4E9 /* [CP] Check Pods Manifest.lock */,
 				D0DE014325EF81C5008ADF68 /* Sources */,
 				D0DE014425EF81C5008ADF68 /* Frameworks */,
 				D0DE014525EF81C5008ADF68 /* Resources */,
+				EC505CF6356205335CC27BED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +255,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		559D2DD32BE9F30DA6E1A4E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Piano-Songs-Application-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC505CF6356205335CC27BED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0DE014325EF81C5008ADF68 /* Sources */ = {
@@ -380,6 +445,7 @@
 		};
 		D0DE015C25EF81C8008ADF68 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 478B91D598CAEA34C5977694 /* Pods-Piano-Songs-Application.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -402,6 +468,7 @@
 		};
 		D0DE015D25EF81C8008ADF68 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72B153A25729348964ADBD70 /* Pods-Piano-Songs-Application.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

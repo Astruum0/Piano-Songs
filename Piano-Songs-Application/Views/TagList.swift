@@ -26,6 +26,7 @@ struct TagList: View {
                         }
                     }.onDelete(perform: { indexSet in
                         self.TagVM.deleteTag(tag: tags[indexSet.first!], context: context)
+                        //self.SongVM.updateAllTags(context: context)
                     })
                     Button(action: {
                         TagVM.sheetOn.toggle()
@@ -47,8 +48,6 @@ struct TagList: View {
             .sheet(isPresented: self.$TagVM.sheetOn) {
                 NewTagView(TagVM: TagVM, SongVM: SongVM)
             }
-        }.onAppear(perform: {
-            self.SongVM.updateAllTags(context: context)
-        })
+        }
     }
 }

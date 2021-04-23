@@ -13,11 +13,11 @@ struct MainView: View {
     @StateObject var TagVM = TagViewModel()
     
     @FetchRequest(entity: Tag.entity(),
-                  sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
+                  sortDescriptors: [])
     var tags: FetchedResults<Tag>
     
     @FetchRequest(entity: Song.entity(),
-                  sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
+                  sortDescriptors: [NSSortDescriptor(key: "artist", ascending: true)])
     var songs: FetchedResults<Song>
     
     var body: some View {

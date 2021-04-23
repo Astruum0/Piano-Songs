@@ -149,9 +149,8 @@ private extension SongBpmFetcher {
     urlComponents.host = host
     urlComponents.path = path
     urlComponents.queryItems = [queryKey, queryType, querySearch]
-    
-    print(urlComponents.url)
 
     return urlComponents.url
+    
   }
 }
