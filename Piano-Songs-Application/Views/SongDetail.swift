@@ -16,17 +16,39 @@ struct SongDetail: View {
     
     var body: some View {
         ScrollView {
+            ZStack {
+                VStack {
+                    
+                    if let url = song.coverUrl {
+                        AsyncImage(url: URL(string: url)!,
+                                      placeholder: { Text("Loading ...") },
+                                      image: { Image(uiImage: $0).resizable() })
+                            .scaledToFit()
+                            .blur(radius: 20)
+                            
+                            
+
+                    } else {
+                        Image("default")
+                            .resizable()
+                            .scaledToFit()
+                            .blur(radius: 20)
+                            
+                    }
+                    Spacer()
+                }
+            
             
             VStack {
                 if let url = song.coverUrl {
-                    AsyncImage2(url: URL(string: url)!,
+                    AsyncImage(url: URL(string: url)!,
                                   placeholder: { Text("Loading ...") },
                                   image: { Image(uiImage: $0).resizable() })
                         .frame(width: 300, height: 300)
                         .scaledToFill()
                         .cornerRadius(12.0)
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    //AsyncImage(url: URL(string: url)!, type: .large)
+                        .padding(.top, 20)
 
                 } else {
                     Image("default")
@@ -35,6 +57,7 @@ struct SongDetail: View {
                         .scaledToFill()
                         .cornerRadius(12.0)
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .padding(.top, 18)
                 }
                 
                 HStack {
@@ -42,10 +65,14 @@ struct SongDetail: View {
                     VStack {
                         Text(song.name ?? "Unknown")
                             .font(.title)
+                            .foregroundColor(.white)
                             .fontWeight(.bold)
+                            .shadow(radius: 20)
                         Text(song.artist ?? "Unknown")
                             .font(.title2)
+                            .foregroundColor(.white)
                             .fontWeight(.semibold)
+                            .shadow(radius: 18)
                     }
                     .padding()
                 }
@@ -98,6 +125,7 @@ struct SongDetail: View {
                     }
                 }
                 
+            }
             }
             
         }

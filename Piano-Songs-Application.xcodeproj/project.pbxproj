@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F661427AE754CF46ECFC98A /* Pods_Piano_Songs_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5625A6E4D1C9DD5B70C45E20 /* Pods_Piano_Songs_Application.framework */; };
 		D028E5A2260212AF00913D8B /* NewSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028E5A1260212AF00913D8B /* NewSongView.swift */; };
 		D028E5A5260253BE00913D8B /* apiCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028E5A4260253BE00913D8B /* apiCallModel.swift */; };
 		D045168B2626EB34009C0EC6 /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045168A2626EB34009C0EC6 /* NewTagView.swift */; };
 		D051B90C2614A9A400B0C535 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D051B90B2614A9A400B0C535 /* AsyncImageView.swift */; };
 		D0C5F6942614818900800F6E /* SongFromDeezerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C5F6932614818900800F6E /* SongFromDeezerViewModel.swift */; };
 		D0D770BB26147C23007D5B1E /* SongFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D770BA26147C23007D5B1E /* SongFetcher.swift */; };
+		D0DB2C4B26336CCC00444434 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB2C4A26336CCC00444434 /* DoubleExtension.swift */; };
 		D0DE014B25EF81C5008ADF68 /* Piano_Songs_ApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE014A25EF81C5008ADF68 /* Piano_Songs_ApplicationApp.swift */; };
 		D0DE014F25EF81C8008ADF68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DE014E25EF81C8008ADF68 /* Assets.xcassets */; };
 		D0DE015225EF81C8008ADF68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DE015125EF81C8008ADF68 /* Preview Assets.xcassets */; };
@@ -29,22 +29,18 @@
 		D0DE017525EF8320008ADF68 /* SongsFromTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE016B25EF8320008ADF68 /* SongsFromTag.swift */; };
 		D0DE017625EF8320008ADF68 /* SongsFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */; };
 		D0DE017D25EF8341008ADF68 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0DE017B25EF8341008ADF68 /* default.jpg */; };
-		D0DE017E25EF8341008ADF68 /* songsData.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DE017C25EF8341008ADF68 /* songsData.json */; };
-		D0DE018525EF834B008ADF68 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018225EF834B008ADF68 /* data.swift */; };
 		D0DE018B25EF8CC7008ADF68 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018A25EF8CC7008ADF68 /* TagViewModel.swift */; };
 		D0DE018E25EF8F7E008ADF68 /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE018D25EF8F7E008ADF68 /* SongViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		478B91D598CAEA34C5977694 /* Pods-Piano-Songs-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piano-Songs-Application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application.debug.xcconfig"; sourceTree = "<group>"; };
-		5625A6E4D1C9DD5B70C45E20 /* Pods_Piano_Songs_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Piano_Songs_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72B153A25729348964ADBD70 /* Pods-Piano-Songs-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piano-Songs-Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application.release.xcconfig"; sourceTree = "<group>"; };
 		D028E5A1260212AF00913D8B /* NewSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSongView.swift; sourceTree = "<group>"; };
 		D028E5A4260253BE00913D8B /* apiCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiCallModel.swift; sourceTree = "<group>"; };
 		D045168A2626EB34009C0EC6 /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
 		D051B90B2614A9A400B0C535 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		D0C5F6932614818900800F6E /* SongFromDeezerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFromDeezerViewModel.swift; sourceTree = "<group>"; };
 		D0D770BA26147C23007D5B1E /* SongFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFetcher.swift; sourceTree = "<group>"; };
+		D0DB2C4A26336CCC00444434 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		D0DE014725EF81C5008ADF68 /* Piano-Songs-Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Piano-Songs-Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DE014A25EF81C5008ADF68 /* Piano_Songs_ApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piano_Songs_ApplicationApp.swift; sourceTree = "<group>"; };
 		D0DE014E25EF81C8008ADF68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,8 +58,6 @@
 		D0DE016B25EF8320008ADF68 /* SongsFromTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsFromTag.swift; sourceTree = "<group>"; };
 		D0DE016C25EF8320008ADF68 /* SongsFromArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsFromArtist.swift; sourceTree = "<group>"; };
 		D0DE017B25EF8341008ADF68 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
-		D0DE017C25EF8341008ADF68 /* songsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songsData.json; sourceTree = "<group>"; };
-		D0DE018225EF834B008ADF68 /* data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		D0DE018A25EF8CC7008ADF68 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		D0DE018D25EF8F7E008ADF68 /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,37 +67,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F661427AE754CF46ECFC98A /* Pods_Piano_Songs_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		801E12E9C0F0205D994BB626 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				478B91D598CAEA34C5977694 /* Pods-Piano-Songs-Application.debug.xcconfig */,
-				72B153A25729348964ADBD70 /* Pods-Piano-Songs-Application.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8DC3CBC5DDA62CD8BFC9C01D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5625A6E4D1C9DD5B70C45E20 /* Pods_Piano_Songs_Application.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D0DE013E25EF81C5008ADF68 = {
 			isa = PBXGroup;
 			children = (
 				D0DE014925EF81C5008ADF68 /* Piano-Songs-Application */,
 				D0DE014825EF81C5008ADF68 /* Products */,
-				801E12E9C0F0205D994BB626 /* Pods */,
-				8DC3CBC5DDA62CD8BFC9C01D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				D0DE017B25EF8341008ADF68 /* default.jpg */,
-				D0DE017C25EF8341008ADF68 /* songsData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -181,7 +154,7 @@
 		D0DE016225EF82FE008ADF68 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D0DE018225EF834B008ADF68 /* data.swift */,
+				D0DB2C4A26336CCC00444434 /* DoubleExtension.swift */,
 				D028E5A4260253BE00913D8B /* apiCallModel.swift */,
 				D0D770BA26147C23007D5B1E /* SongFetcher.swift */,
 			);
@@ -195,11 +168,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0DE015B25EF81C8008ADF68 /* Build configuration list for PBXNativeTarget "Piano-Songs-Application" */;
 			buildPhases = (
-				559D2DD32BE9F30DA6E1A4E9 /* [CP] Check Pods Manifest.lock */,
 				D0DE014325EF81C5008ADF68 /* Sources */,
 				D0DE014425EF81C5008ADF68 /* Frameworks */,
 				D0DE014525EF81C5008ADF68 /* Resources */,
-				EC505CF6356205335CC27BED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,51 +220,11 @@
 			files = (
 				D0DE015225EF81C8008ADF68 /* Preview Assets.xcassets in Resources */,
 				D0DE014F25EF81C8008ADF68 /* Assets.xcassets in Resources */,
-				D0DE017E25EF8341008ADF68 /* songsData.json in Resources */,
 				D0DE017D25EF8341008ADF68 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		559D2DD32BE9F30DA6E1A4E9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Piano-Songs-Application-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC505CF6356205335CC27BED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Piano-Songs-Application/Pods-Piano-Songs-Application-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0DE014325EF81C5008ADF68 /* Sources */ = {
@@ -310,7 +241,6 @@
 				D0DE015425EF81C8008ADF68 /* Persistence.swift in Sources */,
 				D028E5A5260253BE00913D8B /* apiCallModel.swift in Sources */,
 				D0C5F6942614818900800F6E /* SongFromDeezerViewModel.swift in Sources */,
-				D0DE018525EF834B008ADF68 /* data.swift in Sources */,
 				D0DE016F25EF8320008ADF68 /* SongsBPM.swift in Sources */,
 				D0DE018E25EF8F7E008ADF68 /* SongViewModel.swift in Sources */,
 				D0DE016E25EF8320008ADF68 /* SongDetail.swift in Sources */,
@@ -320,6 +250,7 @@
 				D0DE015725EF81C8008ADF68 /* Piano_Songs_Application.xcdatamodeld in Sources */,
 				D028E5A2260212AF00913D8B /* NewSongView.swift in Sources */,
 				D045168B2626EB34009C0EC6 /* NewTagView.swift in Sources */,
+				D0DB2C4B26336CCC00444434 /* DoubleExtension.swift in Sources */,
 				D0DE018B25EF8CC7008ADF68 /* TagViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,64 +319,8 @@
 			};
 			name = Debug;
 		};
-		D0DE015A25EF81C8008ADF68 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		D0DE015C25EF81C8008ADF68 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 478B91D598CAEA34C5977694 /* Pods-Piano-Songs-Application.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -466,29 +341,6 @@
 			};
 			name = Debug;
 		};
-		D0DE015D25EF81C8008ADF68 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72B153A25729348964ADBD70 /* Pods-Piano-Songs-Application.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Piano-Songs-Application/Preview Content\"";
-				DEVELOPMENT_TEAM = S7J9Y64448;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Piano-Songs-Application/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vella-AppleLab.Piano-Songs-Application";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -496,19 +348,17 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0DE015925EF81C8008ADF68 /* Debug */,
-				D0DE015A25EF81C8008ADF68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D0DE015B25EF81C8008ADF68 /* Build configuration list for PBXNativeTarget "Piano-Songs-Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0DE015C25EF81C8008ADF68 /* Debug */,
-				D0DE015D25EF81C8008ADF68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

@@ -45,7 +45,7 @@ struct NewSongView: View {
                 Section(header: Text("Auto filled informations")) {
                     HStack {
                         if self.SongVM.coverUrl != "" {
-                            AsyncImage2FromViewModel(viewModel: self.SongVM,
+                            AsyncImageFromViewModel(viewModel: self.SongVM,
                                           placeholder: { Text("Loading ...") },
                                           image: { Image(uiImage: $0).resizable() })
                                 .frame(width: 100, height: 100)

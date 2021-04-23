@@ -94,14 +94,21 @@ class SongViewModel: ObservableObject {
             do {
                 let currentTagFetch = try context.fetch(tagReq)[0]
                 currentTagFetch.addToSongs(newSong)
-                try context.save()
             } catch {
                 print(error.localizedDescription)
             }
         }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         updateAllArtists(context: context)
         resetValues()
         sheetOn = false
+        
     }
     func resetValues() {
         name = ""
