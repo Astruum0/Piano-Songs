@@ -10,14 +10,12 @@ import SwiftUI
 struct NewSongView: View {
     @ObservedObject var SongVM: SongViewModel
     @Environment(\.managedObjectContext) private var context
-    
-    
-    init(SongVM: SongViewModel) {
-        self.SongVM = SongVM
-    }
+    @FetchRequest(entity: Tag.entity(),
+                  sortDescriptors: [])
+    var tags: FetchedResults<Tag>
     
     func cantAdd() -> Bool {
-        return self.SongVM.name == "" && self.SongVM.artist == ""
+        return self.SongVM.name == ""
     }
     
     
@@ -52,7 +50,6 @@ struct NewSongView: View {
                                 .scaledToFill()
                                 .cornerRadius(12.0)
                                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            //AsyncImageForNewSong(songVM: SongVM, type: .medium)
                         } else {
                             Image("default")
                                 .resizable()
@@ -82,25 +79,25 @@ struct NewSongView: View {
                 }
                 Section(header: Text("Categories")) {
                     List {
-                        ForEach(0 ..< SongVM.allTags.count) { value in
+                        ForEach(tags) { (tag: Tag) in
                             Button(action: {
-                                if self.SongVM.tags.contains(SongVM.allTags[value]) {
-                                    self.SongVM.tags.remove(at: SongVM.tags.firstIndex(of: SongVM.allTags[value])!)
+                                if self.SongVM.tags.contains(tag.name!) {
+                                    self.SongVM.tags.remove(at: SongVM.tags.firstIndex(of: tag.name!)!)
                                 } else {
-                                    self.SongVM.tags.append(SongVM.allTags[value])
+                                    self.SongVM.tags.append(tag.name!)
                                 }
                             }
                             ) {
                                 HStack {
-                                    Text(SongVM.allTags[value])
-                                    if self.SongVM.tags.contains(SongVM.allTags[value]) {
-                                        Spacer()
+                                    Text(tag.name!)
+                                    Spacer()
+                                    if self.SongVM.tags.contains(tag.name!) {
+                                        
                                         Image(systemName: "checkmark").padding(.trailing, 8)
                                     }
-                                }
+                                }.contentShape(Rectangle())
                                 
                             }.buttonStyle(PlainButtonStyle())
-                            
                         }
                     }
                 }

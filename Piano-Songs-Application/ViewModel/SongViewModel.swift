@@ -105,7 +105,7 @@ class SongViewModel: ObservableObject {
             print(error.localizedDescription)
         }
         
-        updateAllArtists(context: context)
+        //updateAllArtists(context: context)
         resetValues()
         sheetOn = false
         
